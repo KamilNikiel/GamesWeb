@@ -10,5 +10,7 @@ namespace GamesWeb.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
+        public bool IsSubscribedToNewsletter { get; set; }
+        public MembershipType MembershipType { get; set; }
     }
 }
