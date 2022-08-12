@@ -180,12 +180,21 @@
     <Compile Include="Migrations\202208021204298_InitialModel.designer.cs">
       <DependentUpon>202208021204298_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208021248082_AddIsSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\202208021248082_AddIsSubscribedToCustomer.designer.cs">
+      <DependentUpon>202208021248082_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208021341081_AddMembershipType.cs" />
+    <Compile Include="Migrations\202208021341081_AddMembershipType.designer.cs">
+      <DependentUpon>202208021341081_AddMembershipType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\RandomGameViewModel.cs" />
@@ -271,6 +280,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202208021204298_InitialModel.resx">
       <DependentUpon>202208021204298_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208021248082_AddIsSubscribedToCustomer.resx">
+      <DependentUpon>202208021248082_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208021341081_AddMembershipType.resx">
+      <DependentUpon>202208021341081_AddMembershipType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
