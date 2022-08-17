@@ -30,8 +30,8 @@ namespace GamesWeb.Controllers
         {
             return new List<Customer>
             {
-                new Customer { Id = 1, FirstName = "Kamil", SecondName = "Nikiel"},
-                new Customer { Id = 2, FirstName = "Joanna", SecondName = "Zoła"},
+                new Customer { Id = 1, FirstName = "Kamil", LastName = "Nikiel"},
+                new Customer { Id = 2, FirstName = "Joanna", LastName = "Zoła"},
                 new Customer { Id = 3, FirstName = "Zdzisek" }
             };
         }
