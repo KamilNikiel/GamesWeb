@@ -32,6 +32,7 @@ namespace GamesWeb.Models
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Configurations.Add(new CustomerConfiguration());
+            modelBuilder.Configurations.Add(new GameConfiguration());
         }
 
         public static ApplicationDbContext Create()

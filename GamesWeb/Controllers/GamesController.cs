@@ -11,25 +11,18 @@ namespace GamesWeb.Controllers
     public class GamesController : Controller
     {
         // GET: Games
+
+        private ApplicationDbContext _context;
+
+        public GamesController()
+        {
+            _context = new ApplicationDbContext();
+        }
         
-        //games
         public ActionResult Index()
         {
-            var games = GetGames();
-
+            var games = _context.Games.ToList();
             return View(games);
-        }
-
-        public IEnumerable<Game> GetGames()
-        {
-            var games = new List<Game>()
-            {
-                new Game {Id = 1, Name = "The Witcher 3"},
-                new Game {Id = 2, Name = "Gothic"},
-                new Game {Id = 3, Name = "Gothic II"}
-            };
-
-            return games;
         }
 
         [Route("games/released/{year:regex(\\d{4})}/{month:range(1, 12)}")]
@@ -52,6 +45,15 @@ namespace GamesWeb.Controllers
                 Games = games
             };
             return View(viewModel);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var game = _context.Games.SingleOrDefault(c => c.Id == id);
+
+            if (game == null)
+                return HttpNotFound();
+            return View(game);
         }
 
     }

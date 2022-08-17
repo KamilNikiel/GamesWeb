@@ -9,16 +9,23 @@
     <h2>Games</h2>
     @if (!Model.Any())
     {
-        <p>We don't have any games yet.</p>
+        <p>We don't have any customers yet.</p>
     }
     else
     {
         <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Game</th>
+                    <th>Genre</th>
+                </tr>
+            </thead>
             <tbody>
                 @foreach (var game in Model)
                 {
                     <tr>
-                        <td>@game.Name</td>
+                        <td>@Html.ActionLink(game.Name, "Details", "Games", new { id = game.Id }, null)</td>
+                        <td>@game.Genre</td>
                     </tr>
                 }
             </tbody>
