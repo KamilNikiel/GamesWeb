@@ -12,5 +12,6 @@ namespace GamesWeb.Models
         public string LastName { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
         public MembershipType MembershipType { get; set; }
+        public Nullable<DateTime> Birthdate { get; set; }
     }
 }

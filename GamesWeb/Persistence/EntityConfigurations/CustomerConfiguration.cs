@@ -17,6 +17,8 @@ namespace GamesWeb.Persistence.EntityConfigurations
             Property(c => c.LastName)
                 .IsRequired()
                 .HasMaxLength(255);
+            Property(c => c.Birthdate)
+                .IsOptional();
         }
     }
 }

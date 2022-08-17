@@ -192,6 +192,22 @@
     <Compile Include="Migrations\202208161520169_ChangeSecondNameToLastNameInCustomerClassAndApplyAnnotations.designer.cs">
       <DependentUpon>202208161520169_ChangeSecondNameToLastNameInCustomerClassAndApplyAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208171334070_AddNameToMembershipTypeClass.cs" />
+    <Compile Include="Migrations\202208171334070_AddNameToMembershipTypeClass.designer.cs">
+      <DependentUpon>202208171334070_AddNameToMembershipTypeClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208171336257_PopulateNamesInExistingMembershipTypeTable.cs" />
+    <Compile Include="Migrations\202208171336257_PopulateNamesInExistingMembershipTypeTable.designer.cs">
+      <DependentUpon>202208171336257_PopulateNamesInExistingMembershipTypeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208171511574_AddBirthdateToCustomerClass.cs" />
+    <Compile Include="Migrations\202208171511574_AddBirthdateToCustomerClass.designer.cs">
+      <DependentUpon>202208171511574_AddBirthdateToCustomerClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208171530201_PopulateBirthdateToUsersInDatabase.cs" />
+    <Compile Include="Migrations\202208171530201_PopulateBirthdateToUsersInDatabase.designer.cs">
+      <DependentUpon>202208171530201_PopulateBirthdateToUsersInDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -295,6 +311,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208161520169_ChangeSecondNameToLastNameInCustomerClassAndApplyAnnotations.resx">
       <DependentUpon>202208161520169_ChangeSecondNameToLastNameInCustomerClassAndApplyAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171334070_AddNameToMembershipTypeClass.resx">
+      <DependentUpon>202208171334070_AddNameToMembershipTypeClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171336257_PopulateNamesInExistingMembershipTypeTable.resx">
+      <DependentUpon>202208171336257_PopulateNamesInExistingMembershipTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171511574_AddBirthdateToCustomerClass.resx">
+      <DependentUpon>202208171511574_AddBirthdateToCustomerClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171530201_PopulateBirthdateToUsersInDatabase.resx">
+      <DependentUpon>202208171530201_PopulateBirthdateToUsersInDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
