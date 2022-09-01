@@ -11,16 +11,15 @@ namespace GamesWeb.Persistence.EntityConfigurations
     {
         public GameConfiguration()
         {
-            Property(c => c.Name)
+            Property(g => g.Name)
                 .IsRequired()
-                .HasMaxLength(255);
-            Property(c => c.Genre)
-                .IsRequired()
-                .HasMaxLength(255);
-            Property(c => c.ReleaseDate)
+                .HasMaxLength(255);                
+            Property(g => g.ReleaseDate)
                 .IsRequired();
-            Property(c => c.DateAdded)
+            Property(g => g.DateAdded)
                 .IsRequired();
+            Property(g => g.GenreId)
+                .IsOptional();
         }
     }
 }
