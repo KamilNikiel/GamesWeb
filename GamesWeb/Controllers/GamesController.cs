@@ -1,10 +1,11 @@
-﻿using System;
+﻿using GamesWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using GamesWeb.Models;
 using GamesWeb.ViewModels;
+using System.Data.Entity;
 
 namespace GamesWeb.Controllers
 {
@@ -21,7 +22,7 @@ namespace GamesWeb.Controllers
         
         public ActionResult Index()
         {
-            var games = _context.Games.ToList();
+            var games = _context.Games.Include(g => g.Genre).ToList();
             return View(games);
         }
 
@@ -47,14 +48,69 @@ namespace GamesWeb.Controllers
             return View(viewModel);
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
+        public ActionResult New()
+        {
+            var genre = _context.Genres.ToList();
+            var viewModel = new GameFormViewModel
+            {
+                Genres = genre,
+            };
+            return View("GameForm", viewModel);
+        }
+        [HttpPost]
+        public ActionResult Save(Game game)
+        {
+
+            if (game.Id == 0)
+            {
+                game.DateAdded = DateTime.Now;
+
+                _context.Games.Add(game);
+            }
+            else
+            {
+                game.LastModified = DateTime.Now;
+
+                var gameInDb = _context.Games.Single(g => g.Id == game.Id);
+
+                gameInDb.Name = game.Name;
+                gameInDb.Genre = game.Genre;
+                gameInDb.ReleaseDate = game.ReleaseDate;
+                gameInDb.LastModified = game.LastModified;
+            }
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Games");
+        }
+
         public ActionResult Details(int id)
         {
-            var game = _context.Games.SingleOrDefault(c => c.Id == id);
+            var game = _context.Games.Include(g => g.Genre).SingleOrDefault(g => g.Id == id);
 
             if (game == null)
                 return HttpNotFound();
+
             return View(game);
         }
+        public ActionResult Edit(int id)
+        {
+            var game = _context.Games.SingleOrDefault(g => g.Id == id);
 
+            if (id == null)
+                return HttpNotFound();
+
+            var viewModel = new GameFormViewModel
+            {
+                Game = game,
+                Genres = _context.Genres.ToList()
+            };
+
+            return View("GameForm", viewModel);
+        }
     }
 }

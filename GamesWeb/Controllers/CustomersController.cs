@@ -46,6 +46,7 @@ namespace GamesWeb.Controllers
                 customerInDb.LastName = customer.LastName;
                 customerInDb.MembershipTypeId = customer.MembershipTypeId;
                 customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+                customerInDb.Birthdate = customer.Birthdate;
             }
             _context.SaveChanges();
 

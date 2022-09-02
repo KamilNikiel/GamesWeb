@@ -8,7 +8,7 @@ namespace GamesWeb.ViewModels
 {
     public class RandomGameViewModel
     {
-        public List<Game> Games { get; set; }
-        public List<Customer> Customers { get; set; }
+        public ICollection<Game> Games { get; set; }
+        public ICollection<Customer> Customers { get; set; }
     }
 }

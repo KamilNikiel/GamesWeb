@@ -18,6 +18,8 @@ namespace GamesWeb.Persistence.EntityConfigurations
                 .IsRequired();
             Property(g => g.DateAdded)
                 .IsRequired();
+            Property(g => g.LastModified)
+                .IsOptional();
             Property(g => g.GenreId)
                 .IsOptional();
         }
