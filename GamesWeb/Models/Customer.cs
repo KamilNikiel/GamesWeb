@@ -10,9 +10,13 @@ namespace GamesWeb.Models
     {
         public int Id { get; set; }
 
+        //[Required(ErrorMessage = "This field is required.")]
+        [Required]
+        [MaxLength(255)]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
-
+        [Required]
+        [MaxLength(255)]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
@@ -22,6 +26,7 @@ namespace GamesWeb.Models
         public byte MembershipTypeId { get; set; }
 
         [Display(Name = "Date of Birth")]
+        [MembershipAnAdultRequirement]
         public Nullable<DateTime> Birthdate { get; set; }
     }
 }

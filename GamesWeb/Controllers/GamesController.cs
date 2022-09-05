@@ -63,9 +63,17 @@ namespace GamesWeb.Controllers
             return View("GameForm", viewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Game game)
         {
-
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new GameFormViewModel(game)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+                return View("CustomerForm", viewModel);
+            }
             if (game.Id == 0)
             {
                 game.DateAdded = DateTime.Now;
@@ -104,9 +112,8 @@ namespace GamesWeb.Controllers
             if (id == null)
                 return HttpNotFound();
 
-            var viewModel = new GameFormViewModel
+            var viewModel = new GameFormViewModel(game)
             {
-                Game = game,
                 Genres = _context.Genres.ToList()
             };
 

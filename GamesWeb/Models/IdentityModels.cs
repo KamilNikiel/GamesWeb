@@ -32,8 +32,8 @@ namespace GamesWeb.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Configurations.Add(new CustomerConfiguration());
-            modelBuilder.Configurations.Add(new GameConfiguration());
+            //modelBuilder.Configurations.Add(new CustomerConfiguration());
+            //modelBuilder.Configurations.Add(new GameConfiguration());
         }
 
         public static ApplicationDbContext Create()

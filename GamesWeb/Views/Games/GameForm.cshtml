@@ -9,21 +9,32 @@
 @using (Html.BeginForm("Save", "Games"))
 {
     <div class="form-group">
-        @Html.LabelFor(m => m.Game.Name)
-        @Html.TextBoxFor(m => m.Game.Name, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Game.ReleaseDate)
+        @Html.LabelFor(m => m.ReleaseDate)
         @*<label for="Birthdate">Date of Birth</label>*@
-        @Html.TextBoxFor(m => m.Game.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ReleaseDate)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Game.GenreId)
-        @Html.DropDownListFor(m => m.Game.GenreId,
+        @Html.LabelFor(m => m.GenreId)
+        @Html.DropDownListFor(m => m.GenreId,
             new SelectList(Model.Genres, "Id", "Name"),
             "Select Genre",
             new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.GenreId)
     </div>
-    @Html.HiddenFor(m => m.Game.Id)
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+
     <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+
 }
