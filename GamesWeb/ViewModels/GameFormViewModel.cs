@@ -15,8 +15,9 @@ namespace GamesWeb.ViewModels
         [Required]
         [MaxLength(255)]
         public string Name { get; set; }
+        [Display(Name = "Genre")]
         public Genre Genre { get; set; }
-
+        [Display(Name = "Genre")]
         public byte? GenreId { get; set; }
 
         [Display(Name = "Release Date")]

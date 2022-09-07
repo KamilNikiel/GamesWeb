@@ -1,13 +1,15 @@
 ﻿body {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
 
 /* Override the default bootstrap behavior where horizontal description lists 
