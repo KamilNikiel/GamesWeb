@@ -72,12 +72,12 @@ namespace GamesWeb.Controllers
                 {
                     Genres = _context.Genres.ToList()
                 };
-                return View("CustomerForm", viewModel);
+                return View("GameForm", viewModel);
             }
             if (game.Id == 0)
             {
                 game.DateAdded = DateTime.Now;
-
+                
                 _context.Games.Add(game);
             }
             else

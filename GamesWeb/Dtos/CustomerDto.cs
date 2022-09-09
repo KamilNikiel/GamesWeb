@@ -20,7 +20,7 @@ namespace GamesWeb.Dtos
         public string LastName { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
 
-        public byte MembershipTypeId { get; set; }
+        public MembershipTypeDto MembershipType { get; set; }
 
         //[MembershipAnAdultRequirement]
         public Nullable<DateTime> Birthdate { get; set; }

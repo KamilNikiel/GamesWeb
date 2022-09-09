@@ -4,63 +4,55 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
-<script src="~/Scripts/bootstrap.bundle.min.js"></script>
-<script src="~/Scripts/bootstrap.esm.min.js"></script>
-
 <p>
-    <h2>New Customer</h2>
+    <h2>@Model.Title</h2>
 </p>
 
-<script type="text/javascript">
-    $(function () {
-        $('#datetimepicker1').datetimepicker();
-    });
-</script>
+
 
 @using (Html.BeginForm("Save", "Customers"))
 {
     @Html.ValidationSummary(true, "Please fix the following errors.")
     <p>
         <div class="form-group">
-            @Html.LabelFor(m => m.Customer.FirstName)
-            @Html.TextBoxFor(m => m.Customer.FirstName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Customer.FirstName)
+            @Html.LabelFor(m => m.FirstName)
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FirstName)
         </div>
     </p>
     <p>
         <div class="form-group">
-            @Html.LabelFor(m => m.Customer.LastName)
-            @Html.TextBoxFor(m => m.Customer.LastName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Customer.LastName)
+            @Html.LabelFor(m => m.LastName)
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.LastName)
         </div>
     </p>
     <p>
         <div class="form-group">
-            @Html.LabelFor(m => m.Customer.MembershipTypeId)
-            @Html.DropDownListFor(m => m.Customer.MembershipTypeId,
+            @Html.LabelFor(m => m.MembershipTypeId)
+            @Html.DropDownListFor(m => m.MembershipTypeId,
                 new SelectList(Model.MembershipTypes, "Id", "Name"),
                 "Select Membership Type",
                 new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Customer.MembershipTypeId)
+            @Html.ValidationMessageFor(m => m.MembershipTypeId)
         </div>
     </p>
     <p>
         <div class="form-group">
-            @Html.LabelFor(m => m.Customer.Birthdate)
+            @Html.LabelFor(m => m.Birthdate)
             @*<label for="Birthdate">Date of Birth</label>*@
-            @Html.TextBoxFor(m => m.Customer.Birthdate, "{0:d MMM yyyy}", new { @type = "date", @class = "form-control datetimepicker" })
-            @Html.ValidationMessageFor(m => m.Customer.Birthdate)
+            @Html.TextBoxFor(m => m.Birthdate, "{0:yyyy-MM-d}" , new { @type = "date", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Birthdate)
         </div>
     </p>
     <p>
         <div class="checkbox">
             <label>
-                @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsletter) Subscribed to Newsletter?
+                @Html.CheckBoxFor(m => m.IsSubscribedToNewsletter) Subscribed to Newsletter?
             </label>
         </div>
     </p>
-    @Html.HiddenFor(m => m.Customer.Id)
+    @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
 }
@@ -68,5 +60,4 @@
 @section scripts
 {
     @Scripts.Render("~/bundles/jqueryval")
-
 }

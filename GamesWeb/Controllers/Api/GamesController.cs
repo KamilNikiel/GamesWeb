@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 
 namespace GamesWeb.Controllers.Api
 {
@@ -20,7 +21,10 @@ namespace GamesWeb.Controllers.Api
         //GET api/customers
         public IHttpActionResult GetGames()
         {
-            return Ok(_context.Games.ToList().Select(Mapper.Map<Game, GameDto>));
+            return Ok(_context.Games
+                .Include(g => g.Genre)
+                .ToList()
+                .Select(Mapper.Map<Game, GameDto>));
         }
         //GET api/customers/1
         public IHttpActionResult GetGame(int id)

@@ -39,9 +39,8 @@ namespace GamesWeb.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = new CustomerFormViewModel()
+                var viewModel = new CustomerFormViewModel(customer)
                 {
-                    Customer = customer,
                     MembershipTypes = _context.MembershipTypes.ToList()
                 };
                 return View("CustomerForm", viewModel);
@@ -64,8 +63,7 @@ namespace GamesWeb.Controllers
         }
         public ViewResult Index()
         {
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-            return View(customers);
+            return View();
         }
 
         public ActionResult Details(int id)
@@ -74,16 +72,18 @@ namespace GamesWeb.Controllers
 
             if (customer == null)
                     return HttpNotFound();
+
             return View(customer);
         }
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+
             if (id == null)
                 return HttpNotFound();
-            var viewModel = new CustomerFormViewModel
+
+            var viewModel = new CustomerFormViewModel(customer)
             {
-                Customer = customer,
                 MembershipTypes = _context.MembershipTypes.ToList()
             };
 
