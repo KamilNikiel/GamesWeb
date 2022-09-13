@@ -11,6 +11,7 @@ using System.Data.Entity;
 
 namespace GamesWeb.Controllers.Api
 {
+    [Authorize(Roles = RoleName.CanManageCustomers)]
     public class CustomersController : ApiController
     {
         private ApplicationDbContext _context;

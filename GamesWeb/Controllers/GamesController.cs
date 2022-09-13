@@ -20,10 +20,14 @@ namespace GamesWeb.Controllers
             _context = new ApplicationDbContext();
         }
         
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var games = _context.Games.Include(g => g.Genre).ToList();
-            return View(games);
+
+            if (User.IsInRole(RoleName.CanManageGames))
+                return View("List");
+
+            return View("ReadOnlyList");
         }
 
         [Route("games/released/{year:regex(\\d{4})}/{month:range(1, 12)}")]
@@ -53,6 +57,7 @@ namespace GamesWeb.Controllers
             _context.Dispose();
         }
 
+        [Authorize(Roles = RoleName.CanManageGames)]
         public ActionResult New()
         {
             var genre = _context.Genres.ToList();
@@ -64,6 +69,7 @@ namespace GamesWeb.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CanManageGames)]
         public ActionResult Save(Game game)
         {
             if (!ModelState.IsValid)
@@ -105,6 +111,7 @@ namespace GamesWeb.Controllers
 
             return View(game);
         }
+        [Authorize(Roles = RoleName.CanManageGames)]
         public ActionResult Edit(int id)
         {
             var game = _context.Games.SingleOrDefault(g => g.Id == id);

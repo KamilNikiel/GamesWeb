@@ -6,8 +6,17 @@ namespace GamesWeb.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
+        [Display(Name = "Name")]
+        [MaxLength(50)]
+        public string UserName { get; set; }
+
+        [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [MaxLength(50)]
+        [Display(Name = "Phone number")]
+        public string PhoneNumber { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -65,6 +74,10 @@ namespace GamesWeb.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Name")]
+        [MaxLength(50)]
+        public string UserName { get; set; }
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -79,6 +92,10 @@ namespace GamesWeb.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [MaxLength(50)]
+        [Display(Name = "Phone number")]
+        public string PhoneNumber { get; set; }
     }
 
     public class ResetPasswordViewModel

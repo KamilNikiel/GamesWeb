@@ -39,6 +39,7 @@ namespace GamesWeb.Controllers.Api
         //POST /api/customers
         //public Customer PostCustomer(Customer customer) - [HttpPost] not needed
         [HttpPost]
+        [Authorize(Roles = RoleName.CanManageGames)]
         public IHttpActionResult CreateGame(GameDto gameDto)
         {
             if (!ModelState.IsValid)
@@ -57,6 +58,7 @@ namespace GamesWeb.Controllers.Api
 
         //PUT /api/customers/1
         [HttpPut]
+        [Authorize(Roles = RoleName.CanManageGames)]
         public IHttpActionResult UpdateGame(int id, GameDto gameDto)
         {
             if (!ModelState.IsValid)
@@ -78,7 +80,8 @@ namespace GamesWeb.Controllers.Api
         //DELETE /api/customers/1
 
         [HttpDelete]
-        public IHttpActionResult DeleteCustomer(int id)
+        [Authorize(Roles = RoleName.CanManageGames)]
+        public IHttpActionResult DeleteGame(int id)
         {
             var gameInDb = _context.Games.SingleOrDefault(c => c.Id == id);
 

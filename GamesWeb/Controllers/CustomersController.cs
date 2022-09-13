@@ -10,6 +10,7 @@ using System.Data.Entity;
 
 namespace GamesWeb.Controllers
 {
+    [Authorize(Roles = RoleName.CanManageCustomers)]
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
@@ -63,7 +64,7 @@ namespace GamesWeb.Controllers
         }
         public ViewResult Index()
         {
-            return View();
+            return View("");
         }
 
         public ActionResult Details(int id)
@@ -89,6 +90,12 @@ namespace GamesWeb.Controllers
 
             return View("CustomerForm", viewModel);
         }
+        public ViewResult NavBarAccessible()
+        {
+            if (User.IsInRole(RoleName.CanManageCustomers))
+                return View("List");
 
+            return View("ReadOnlyList");
+        }
     }
 }

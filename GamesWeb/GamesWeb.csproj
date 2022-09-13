@@ -204,6 +204,10 @@
     <Compile Include="Migrations\202208021341081_AddMembershipType.designer.cs">
       <DependentUpon>202208021341081_AddMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208161236110_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202208161236110_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>202208161236110_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202208161520169_ChangeSecondNameToLastNameInCustomerClassAndApplyAnnotations.cs" />
     <Compile Include="Migrations\202208161520169_ChangeSecondNameToLastNameInCustomerClassAndApplyAnnotations.designer.cs">
       <DependentUpon>202208161520169_ChangeSecondNameToLastNameInCustomerClassAndApplyAnnotations.cs</DependentUpon>
@@ -260,16 +264,22 @@
     <Compile Include="Migrations\202209021006404_UpdateConfigurationOfLastModifiedParameterInGameClass.designer.cs">
       <DependentUpon>202209021006404_UpdateConfigurationOfLastModifiedParameterInGameClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209121433451_ChangePhoneNumberConfigurationInAspNetUsersTable.cs" />
+    <Compile Include="Migrations\202209121433451_ChangePhoneNumberConfigurationInAspNetUsersTable.designer.cs">
+      <DependentUpon>202209121433451_ChangePhoneNumberConfigurationInAspNetUsersTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GamesWebContext.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\MembershipAnAdultRequirement.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Persistence\EntityConfigurations\GameConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\CustomerConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -594,10 +604,11 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Games\Index.cshtml" />
+    <Content Include="Views\Games\List.cshtml" />
     <Content Include="Views\Games\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Games\GameForm.cshtml" />
+    <Content Include="Views\Games\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -641,6 +652,9 @@
     <EmbeddedResource Include="Migrations\202208021341081_AddMembershipType.resx">
       <DependentUpon>202208021341081_AddMembershipType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208161236110_PopulateMembershipTypes.resx">
+      <DependentUpon>202208161236110_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208161520169_ChangeSecondNameToLastNameInCustomerClassAndApplyAnnotations.resx">
       <DependentUpon>202208161520169_ChangeSecondNameToLastNameInCustomerClassAndApplyAnnotations.cs</DependentUpon>
     </EmbeddedResource>
@@ -682,6 +696,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209021006404_UpdateConfigurationOfLastModifiedParameterInGameClass.resx">
       <DependentUpon>202209021006404_UpdateConfigurationOfLastModifiedParameterInGameClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209121433451_ChangePhoneNumberConfigurationInAspNetUsersTable.resx">
+      <DependentUpon>202209121433451_ChangePhoneNumberConfigurationInAspNetUsersTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
