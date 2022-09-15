@@ -9,7 +9,7 @@ namespace GamesWeb.Models
 {
     public class GamesWebContext : DbContext
     {
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<IdentityModels> Customers { get; set; }
         public DbSet<Game> Games { get; set; }
         public GamesWebContext()
             : base("name=DefaultConnection")

@@ -9,6 +9,6 @@ namespace GamesWeb.ViewModels
     public class RandomGameViewModel
     {
         public ICollection<Game> Games { get; set; }
-        public ICollection<Customer> Customers { get; set; }
+        public ICollection<IdentityModels> Customers { get; set; }
     }
 }

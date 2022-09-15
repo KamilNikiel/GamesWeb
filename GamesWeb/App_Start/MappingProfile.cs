@@ -12,14 +12,14 @@ namespace GamesWeb.App_Start
     {
         public MappingProfile()
         {
-            Mapper.CreateMap<Customer, CustomerDto>();
+            Mapper.CreateMap<IdentityModels, IdentityModelsDto>();
             Mapper.CreateMap<Game, GameDto>();
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
             Mapper.CreateMap<Genre, GenreDto>();
 
 
             // Dto to Domain
-            Mapper.CreateMap<CustomerDto, Customer>()
+            Mapper.CreateMap<IdentityModelsDto, IdentityModels>()
                 .ForMember(c => c.Id, opt => opt.Ignore());
 
             Mapper.CreateMap<GameDto, Game>()

@@ -12,11 +12,9 @@ namespace GamesWeb.ViewModels
         public IEnumerable<MembershipType> MembershipTypes { get; set; }
         public int? Id { get; set; }
 
-        [Required]
         [MaxLength(255)]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
-        [Required]
         [MaxLength(255)]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
@@ -30,6 +28,26 @@ namespace GamesWeb.ViewModels
         [MembershipAnAdultRequirement]
         public Nullable<DateTime> Birthdate { get; set; }
         [Required]
+        [Display(Name = "Name")]
+        [MaxLength(50)]
+        public string UserName { get; set; }
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Current e-mail")]
+        public string Email { get; set; }
+        [EmailAddress]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "E-mail")]
+        public string NewEmail { get; set; }
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Confirm E-mail")]
+        [Compare("Email", ErrorMessage = "The e-mail and confirmation email do not match.")]
+        public string ConfirmEmail { get; set; }
+
+        [MaxLength(50)]
+        [Display(Name = "Phone number")]
+        public string PhoneNumber { get; set; }
+        [Required]
         public string Title
         {
             get
@@ -41,13 +59,17 @@ namespace GamesWeb.ViewModels
         {
             Id = 0;
         }
-        public CustomerFormViewModel(Customer customer)
+        public CustomerFormViewModel(IdentityModels customer)
         {
             FirstName = customer.FirstName;
             LastName = customer.LastName;
             IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
             MembershipTypeId = customer.MembershipTypeId;
             Birthdate = customer.Birthdate;
+            UserName = customer.UserName;
+            PhoneNumber = customer.PhoneNumber;
+            Email = customer.Email;
+            NewEmail = customer.NewEmail;
         }
     }
 }

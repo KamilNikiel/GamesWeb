@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GamesWeb.Models.Customer>
+﻿@model IEnumerable<GamesWeb.Models.IdentityModels>
 @{
     ViewBag.Title = "Customers";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,7 +9,9 @@
     <table id="customers" class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Customer</th>
+                <th>User Name</th>
+                <th>Name</th>
+                <th>E-mail</th>
                 <th>Subscription Type</th>
                 <th>Delete</th>
             </tr>
@@ -31,10 +33,19 @@
                 },
                 columns: [
                     {
-                        data: "Name",
+                        data: "userName",
                         render: function (data, type, customer) {
-                            return "<a class='btn btn-outline-info' href='/customers/edit/" + customer.id + "'>" + customer.firstName + " " + customer.lastName + "</a>";
+                            return "<a class='btn btn-outline-info' href='/customers/edit/" + customer.id + "'>" + data + "</a>";
                         }
+                    },
+                    {
+                        data: "name",
+                        render: function (data, type, customer) {
+                            return "<a>" + customer.firstName + " " + customer.lastName + "</a>";
+                        }
+                    },
+                    {
+                        data: "email"
                     },
                     {
                         data: "membershipType.name"

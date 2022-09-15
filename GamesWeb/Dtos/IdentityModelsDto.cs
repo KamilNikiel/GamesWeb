@@ -7,9 +7,9 @@ using System.Web;
 
 namespace GamesWeb.Dtos
 {
-    public class CustomerDto
+    public class IdentityModelsDto
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         //[Required(ErrorMessage = "This field is required.")]
         [Required]
@@ -24,5 +24,11 @@ namespace GamesWeb.Dtos
 
         //[MembershipAnAdultRequirement]
         public Nullable<DateTime> Birthdate { get; set; }
+        [Display(Name = "E-mail")]
+        public string Email { get; set; }
+        [Display(Name = "User Name")]
+        public string UserName { get; set; }
+        [Display(Name = "Phone number")]
+        public string PhoneNumber { get; set; }
     }
 }

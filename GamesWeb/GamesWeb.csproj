@@ -185,7 +185,7 @@
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Dtos\CustomerDto.cs" />
+    <Compile Include="Dtos\IdentityModelsDto.cs" />
     <Compile Include="Dtos\GameDto.cs" />
     <Compile Include="Dtos\GenreDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />
@@ -268,10 +268,29 @@
     <Compile Include="Migrations\202209121433451_ChangePhoneNumberConfigurationInAspNetUsersTable.designer.cs">
       <DependentUpon>202209121433451_ChangePhoneNumberConfigurationInAspNetUsersTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209141254132_MigratePropertiesToIdentityModels.cs" />
+    <Compile Include="Migrations\202209141254132_MigratePropertiesToIdentityModels.designer.cs">
+      <DependentUpon>202209141254132_MigratePropertiesToIdentityModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209141320278_AddForeignKeyToMembershipTypeIdInAspNetUsersTable.cs" />
+    <Compile Include="Migrations\202209141320278_AddForeignKeyToMembershipTypeIdInAspNetUsersTable.designer.cs">
+      <DependentUpon>202209141320278_AddForeignKeyToMembershipTypeIdInAspNetUsersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209141325351_DeleteCustomersTable.cs" />
+    <Compile Include="Migrations\202209141325351_DeleteCustomersTable.designer.cs">
+      <DependentUpon>202209141325351_DeleteCustomersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209150958584_FirstNameAndLastNamePropertyInIdentityModelAreOptional.cs" />
+    <Compile Include="Migrations\202209150958584_FirstNameAndLastNamePropertyInIdentityModelAreOptional.designer.cs">
+      <DependentUpon>202209150958584_FirstNameAndLastNamePropertyInIdentityModelAreOptional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209151051489_AddNewEmailPropertyToIdentityModels.cs" />
+    <Compile Include="Migrations\202209151051489_AddNewEmailPropertyToIdentityModels.designer.cs">
+      <DependentUpon>202209151051489_AddNewEmailPropertyToIdentityModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
-    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GamesWebContext.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -699,6 +718,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209121433451_ChangePhoneNumberConfigurationInAspNetUsersTable.resx">
       <DependentUpon>202209121433451_ChangePhoneNumberConfigurationInAspNetUsersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209141254132_MigratePropertiesToIdentityModels.resx">
+      <DependentUpon>202209141254132_MigratePropertiesToIdentityModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209141320278_AddForeignKeyToMembershipTypeIdInAspNetUsersTable.resx">
+      <DependentUpon>202209141320278_AddForeignKeyToMembershipTypeIdInAspNetUsersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209141325351_DeleteCustomersTable.resx">
+      <DependentUpon>202209141325351_DeleteCustomersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209150958584_FirstNameAndLastNamePropertyInIdentityModelAreOptional.resx">
+      <DependentUpon>202209150958584_FirstNameAndLastNamePropertyInIdentityModelAreOptional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209151051489_AddNewEmailPropertyToIdentityModels.resx">
+      <DependentUpon>202209151051489_AddNewEmailPropertyToIdentityModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

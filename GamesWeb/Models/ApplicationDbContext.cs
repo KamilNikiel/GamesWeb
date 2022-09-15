@@ -5,7 +5,6 @@ namespace GamesWeb.Models
 {
     public class ApplicationDbContext : IdentityDbContext<IdentityModels>
     {
-        public DbSet<Customer> Customers { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<MembershipType> MembershipTypes { get; set; }
         public DbSet<Genre> Genres { get; set; }

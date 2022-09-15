@@ -7,7 +7,7 @@ using System.Web;
 
 namespace GamesWeb.Persistence.EntityConfigurations
 {
-    public class CustomerConfiguration : EntityTypeConfiguration<Customer>
+    public class CustomerConfiguration : EntityTypeConfiguration<IdentityModels>
     {
         public CustomerConfiguration()
         {

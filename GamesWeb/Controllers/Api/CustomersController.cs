@@ -22,31 +22,31 @@ namespace GamesWeb.Controllers.Api
         //GET api/customers
         public IHttpActionResult GetCustomers()
         {
-            return Ok(_context.Customers
+            return Ok(_context.Users
                 .Include(c => c.MembershipType)
                 .ToList()
-                .Select(Mapper.Map<Customer, CustomerDto>));
+                .Select(Mapper.Map<IdentityModels, IdentityModelsDto>));
         }
         //GET api/customers/1
-        public IHttpActionResult GetCustomer(int id)
+        public IHttpActionResult GetCustomer(string id)
         {
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            var customer = _context.Users.SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
                 return NotFound();
             
-            return Ok(Mapper.Map<Customer, CustomerDto>(customer));
+            return Ok(Mapper.Map<IdentityModels, IdentityModelsDto>(customer));
         }
         //POST /api/customers
         //public Customer PostCustomer(Customer customer) - [HttpPost] not needed
         [HttpPost]
-        public IHttpActionResult CreateCustomer(CustomerDto customerDto)
+        public IHttpActionResult CreateCustomer(IdentityModelsDto customerDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
-            _context.Customers.Add(customer);
+            var customer = Mapper.Map<IdentityModelsDto, IdentityModels>(customerDto);
+            _context.Users.Add(customer);
             _context.SaveChanges();
 
             customerDto.Id = customer.Id;
@@ -56,17 +56,17 @@ namespace GamesWeb.Controllers.Api
 
         //PUT /api/customers/1
         [HttpPut]
-        public IHttpActionResult UpdateCustomer(int id, CustomerDto customerDto)
+        public IHttpActionResult UpdateCustomer(string id, IdentityModelsDto customerDto)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
-            var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
+            var customerInDb = _context.Users.SingleOrDefault(c => c.Id == id);
 
             if (customerInDb == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             
-            Mapper.Map<CustomerDto, Customer>(customerDto, customerInDb);
+            Mapper.Map<IdentityModelsDto, IdentityModels>(customerDto, customerInDb);
 
             _context.SaveChanges();
             return Ok();
@@ -74,14 +74,14 @@ namespace GamesWeb.Controllers.Api
         //DELETE /api/customers/1
 
         [HttpDelete]
-        public IHttpActionResult DeleteCustomer(int id)
+        public IHttpActionResult DeleteCustomer(string id)
         {
-            var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
+            var customerInDb = _context.Users.SingleOrDefault(c => c.Id == id);
 
             if (customerInDb == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            _context.Customers.Remove(customerInDb);
+            _context.Users.Remove(customerInDb);
             _context.SaveChanges();
             return Ok();
         }
