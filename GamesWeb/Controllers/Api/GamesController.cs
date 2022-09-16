@@ -19,15 +19,22 @@ namespace GamesWeb.Controllers.Api
             _context = new ApplicationDbContext();
         }
         //GET api/customers
-        public IHttpActionResult GetGames()
+        public IHttpActionResult GetGames(string query = null)
         {
-            return Ok(_context.Games
-                .Include(g => g.Genre)
+            var gamesQuery = _context.Games
+                .Include(c => c.Genre);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                gamesQuery = gamesQuery.Where(c => c.Name.Contains(query));
+
+            var gamesDtos = gamesQuery
                 .ToList()
-                .Select(Mapper.Map<Game, GameDto>));
+                .Select(Mapper.Map<Game, GameDto>);
+
+            return Ok(gamesDtos);
         }
-        //GET api/customers/1
-        public IHttpActionResult GetGame(int id)
+            //GET api/customers/1
+            public IHttpActionResult GetGame(int id)
         {
             var game = _context.Games.SingleOrDefault(c => c.Id == id);
 

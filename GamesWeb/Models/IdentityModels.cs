@@ -29,7 +29,6 @@ namespace GamesWeb.Models
         [MaxLength(50)]
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
-        [EmailAddress]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "E-mail")]
         public string NewEmail { get; set; }

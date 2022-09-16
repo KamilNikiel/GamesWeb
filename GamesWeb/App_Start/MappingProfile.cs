@@ -16,6 +16,7 @@ namespace GamesWeb.App_Start
             Mapper.CreateMap<Game, GameDto>();
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
             Mapper.CreateMap<Genre, GenreDto>();
+            Mapper.CreateMap<Order, OrderDto>();
 
 
             // Dto to Domain

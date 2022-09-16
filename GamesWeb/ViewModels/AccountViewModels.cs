@@ -58,6 +58,9 @@ namespace GamesWeb.Models
     public class LoginViewModel
     {
         [Required]
+        [Display(Name = "User Name")]
+        [MaxLength(50)]
+        public string UserName { get; set; }
         [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
@@ -96,6 +99,10 @@ namespace GamesWeb.Models
         [MaxLength(50)]
         [Display(Name = "Phone number")]
         public string PhoneNumber { get; set; }
+        public MembershipType MembershipType { get; set; }
+
+        [Display(Name = "Membership Type")]
+        public byte MembershipTypeId { get; set; }
     }
 
     public class ResetPasswordViewModel

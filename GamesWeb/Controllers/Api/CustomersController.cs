@@ -20,12 +20,19 @@ namespace GamesWeb.Controllers.Api
             _context = new ApplicationDbContext();
         }
         //GET api/customers
-        public IHttpActionResult GetCustomers()
+        public IHttpActionResult GetCustomers(string query = null)
         {
-            return Ok(_context.Users
-                .Include(c => c.MembershipType)
+            var customersQuery = _context.Users
+                .Include(c => c.MembershipType);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                customersQuery = customersQuery.Where(c => c.UserName.Contains(query));
+
+            var customerDtos = customersQuery
                 .ToList()
-                .Select(Mapper.Map<IdentityModels, IdentityModelsDto>));
+                .Select(Mapper.Map<IdentityModels, IdentityModelsDto>);
+
+            return Ok(customerDtos);
         }
         //GET api/customers/1
         public IHttpActionResult GetCustomer(string id)
