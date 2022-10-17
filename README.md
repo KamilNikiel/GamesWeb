@@ -1,1 +1,2 @@
 # GamesWeb
+This is fully functional Web Application with database made in code first approach. Forms are implemented to create new games and users with built-in validations. RESTful Services with ASP.NET Web API has been developed. This API is absorbed by JQuery Ajax to display bootstrap dialogboxes and tables that support pagination, searching and sorting. Added Authentication and Authorization (also with social logins – Facebook and Google).
